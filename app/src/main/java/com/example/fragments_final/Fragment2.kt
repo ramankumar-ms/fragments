@@ -16,7 +16,7 @@ import kotlinx.coroutines.withContext
 
 class Fragment2 : Fragment() {
 
-    private var job: Job? = null // Coroutine Job
+    private var job: Job? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,7 +43,7 @@ class Fragment2 : Fragment() {
     private fun startBackgroundTask() {
         job = CoroutineScope(Dispatchers.Default).launch {
 
-            delay(6000) // 10 seconds
+            delay(6000)
 
 
             withContext(Dispatchers.Main) {
@@ -58,7 +58,7 @@ class Fragment2 : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        job?.cancel() // Cancel the coroutine job to prevent memory leaks
+        job?.cancel()
     }
 
 
